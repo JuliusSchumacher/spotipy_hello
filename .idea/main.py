@@ -5,6 +5,8 @@ sp = spotipy.Spotify()
 
 print('Welcome to the Spotify searcher! Type "end" to exit!')
 
+print(sp.album_tracks('spotify:album:4In2V4QylBdWT8HJ0dLDw5'))
+
 while 1==1 :
     print('Search for artist or track?')
     sType = input()
@@ -16,7 +18,7 @@ while 1==1 :
     if query == 'end':
         break
 
-    results = sp.search(q=query, limit=20, type=sType)
+    results = sp.search(q=query, limit=50, type=sType)
     if sType == 'track':
         for i, t in enumerate(results['tracks']['items']):
             artist = t['artists'][0]['name']
